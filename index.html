@@ -4,20 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="описание">
+    <meta name="google" content="notranslate">
     <title>ActivBox</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cardo:ital@1&family=Open+Sans:wght@700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="img/favicons/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
     <!--SVG Sprite-->
     <svg style="display: none">
-        <symbol id="facebook" viewBox="0 0 24 24">
+        <symbol id="facebook" viewbox="0 0 24 24">
             <path d="m15.997 3.985h2.191v-3.816c-.378-.052-1.678-.169-3.192-.169-3.159 0-5.323 1.987-5.323 5.639v3.361h-3.486v4.266h3.486v10.734h4.274v-10.733h3.345l.531-4.266h-3.877v-2.939c.001-1.233.333-2.077 2.051-2.077z"/>
         </symbol>
-        <symbol id="twitter" viewBox="0 0 512 512">
+        <symbol id="twitter" viewbox="0 0 512 512">
             <g>
                 <path d="M512,97.248c-19.04,8.352-39.328,13.888-60.48,16.576c21.76-12.992,38.368-33.408,46.176-58.016
                     c-20.288,12.096-42.688,20.64-66.56,25.408C411.872,60.704,384.416,48,354.464,48c-58.112,0-104.896,47.168-104.896,104.992
@@ -29,7 +43,7 @@
                     C480.224,136.96,497.728,118.496,512,97.248z"/>
             </g>
         </symbol>
-        <symbol id="linkedin" viewBox="0 0 438.536 438.536">
+        <symbol id="linkedin" viewbox="0 0 438.536 438.536">
             <g>
                 <path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
                     C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
@@ -48,28 +62,30 @@
 
 
     <!-- Header -->
-    <header class="header"> <!--Основной класс header для нашей шапки-->
+    <header class="header" id="header"> <!--Основной класс header для нашей шапки-->
+        <!--Безопаснееиспользовать отдельные классы илу ай ди для работы с JS-->
         <div class="container">  <!--Контейнер, делает нашу сетку-->
             <div class="header__inner"> <!--Нужен, чтоб расположить ЛОГО и НАВИГАЦИЮ-->
                 <div class="header__logo">
                     <img src="img/activebox_20.png" alt="logo">
                 </div>
-                <nav class="nav">
-                    <a href="#" class="nav__link">Features</a>
-                    <a href="#" class="nav__link">Works</a>
-                    <a href="#" class="nav__link">Our Team</a>
-                    <a href="#" class="nav__link">Testimonials</a>
-                    <a href="#" class="nav__link">Download</a>
+
+                <nav class="nav" id="nav">
+                    <a href="#" class="nav__link" data-scroll="#features">Features</a>
+                    <a href="#" class="nav__link" data-scroll="#works">Works</a>
+                    <a href="#" class="nav__link" data-scroll="#team">Our Team</a>
+                    <a href="#" class="nav__link" data-scroll="#reviews">Testimonials</a>
+                    <a href="#" class="nav__link" data-scroll="#download">Download</a>
                 </nav>
 
-                <button class="burger" type="button">
+                <button class="burger" type="button" id="navToggle">
                     <span class="burger__item">Menu</span>
                 </button>
             </div>
         </div>
     </header>
     <!-- Intro -->
-    <div class="intro"> <!--В блоке intro есть блок intro__inner, который ограничивает ширину контента-->
+    <div class="intro" id="intro"> <!--В блоке intro есть блок intro__inner, который ограничивает ширину контента-->
         <div class="contaiter">
             <div class="intro-inner"> <!--Для него пропишем ширину для ограничения ширины контента!!!!-->
                 <h1 class="intro__title">Your Favorite One Page Multi Purpose Template</h1>
@@ -80,7 +96,7 @@
         </div>
     </div>
 <!--Features-->
-    <div class="container">
+    <div class="container" id="features">
         <div class="features">
             <div class="features__item">
                 <img src="img/features/feature-1.png" class="features__icon" alt="icon">
@@ -125,12 +141,12 @@
                 </div>
             </div>  
         </div>  <!--Features   div class="features"-->
-    </div>  <!--Features   div class="container"-->
+    </div>  <!--Features div class="container"-->
 
 
 
-    <!----Works---->
-    <div class="works">
+    <!--Works-->
+    <div class="works" id="works">
         <div class="works__item">
             <img class="works__photo" src="img/works/work-1.jpg" alt="">
             <div class="works__content">
@@ -187,11 +203,11 @@
                 <div class="works__text">User Interface Design</div>
             </div>
         </div>
-    </div>   <!----/.Works---->
+    </div>   <!--/.Works-->
 
 
-    <!--  Tean   -->
-    <div class="team">  <!--Делаем контейнер, чтоб расположить здесь нашу команду-->
+    <!--Tean -->
+    <div class="team" id="team">  <!--Делаем контейнер, чтоб расположить здесь нашу команду-->
         <div class="container"> <!--  Ширина-->
             <div class="team__innner">  <!--Внутренний блок нашего блока Team -->
                 <div class="team__item"> <!--Это каждый цчастник команды-->
@@ -292,30 +308,46 @@
                                 <use xlink:href="#linkedin"></use>
                             </svg>
                         </a>
-                    </div>>
+                    </div>
                 </div>
             </div>  <!--  team__innner  -->
         </div>  <!--  container  -->
-    </div>  <!--  /.team  -->
+    </div>  <!--/.team-->
 
     <!--Reviews-->
-    <div class="reviews">
+    <div class="reviews" id="reviews">
         <div class="container"> <!--Ибо текст все же нужно расположить внутри нашей сетки-->
            
-            <div class="reviews__item"> <!--Будут отдельные слайдовые блоки с отзывами-->
-                <div class="reviews__photo">
-                    <img class="reviews__img" src="img/reviews/review-1.jpg" alt="">
+            <div class="reviews__slider" id="reviewsSlider">
+                <div class="click-item">
+                    <div class="reviews__item"> <!--Будут отдельные слайдовые блоки с отзывами-->
+                        <div class="reviews__photo">
+                            <img class="reviews__img" src="img/reviews/review-1.jpg" alt="">
+                        </div>
+                        <div class="reviews__content">
+                            <div class="reviews__text">“Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Aenean eu leo quam...”</div>
+                            <div class="reviews__author">Susan Sims, Interaction Designer at XYZ</div>
+                        </div>
+                    </div> <!--/.reviews__item-->
                 </div>
-                <div class="reviews__content">
-                    <div class="reviews__text">“Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Aenean eu leo quam...”</div>
-                    <div class="reviews__author">Susan Sims, Interaction Designer at XYZ</div>
+
+                <div class="click-item">
+                    <div class="reviews__item"> <!--Будут отдельные слайдовые блоки с отзывами-->
+                        <div class="reviews__photo">
+                            <img class="reviews__img" src="img/reviews/review-1.jpg" alt="">
+                        </div>
+                        <div class="reviews__content">
+                            <div class="reviews__text">“Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae modi accusantium ut saepe beatae ipsum, tenetur ducimus eaque, nesciunt minima fugit alias? Ullam eius, illo eveniet nemo doloribus iusto commodi?”</div>
+                            <div class="reviews__author">Susan Sims, Interaction Designer at XYZ</div>
+                        </div>
+                    </div> <!--/.reviews__item-->
                 </div>
-            </div>
-        </div> <!--  /.container  -->
-    </div>  <!--  /.reviews  -->
+            </div> <!--/.id="reviewsSlider"-->
+        </div> <!--/.container-->
+    </div>  <!--/.reviews--/>
 
     <!--Download-->
-    <div class="download">
+    <div class="download" id="download">
         <div class="container">
             <h3 class="download__title">Are You Ready to Start? Download Now For Free!</h3>
             <div class="download__text">
@@ -323,9 +355,9 @@
             </div>
             <a class="btn btn--red btn--long" href="#">Download Here</a>
         </div>  <!--  /.container  -->
-    </div> <!--  /.download  -->
+    </div> <!--/.download--/>
 
-    <!-- Footer  -->
+    <!--Footer-->
     <footer class="footer">
         <div class="container">
             <div class="footer__inner">
@@ -333,10 +365,10 @@
                 <div class="footer__block">
                     <h4 class="footer__title">Location</h4>
                     <address class="footer__adress">
-                        <p>3481 Melrose Place<p>
-                        </p>Beverly Hills, CA 90210</p>
+                        <p>3481 Melrose Place</p>
+                        <p>Beverly Hills, CA 90210</p>
                     </address>
-                </div>  <!--  /.footer__block 1  -->
+                </div>  <!--/.footer__block 1-->
 
                 <div class="footer__block">
                     <h4 class="footer__title">Share with Love</h4>
@@ -356,7 +388,7 @@
                                 <use xlink:href="#linkedin"></use>
                             </svg>
                         </a>
-                    </div>  <!--  /.footer__block 2  -->
+                    </div>  <!--/.footer__block 2-->
                 </div>
 
                 <div class="footer__block">
@@ -364,11 +396,11 @@
                     <div class="footer__text">
                         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
                     </div>
-                </div>  <!--  footer__block 3  -->
-            </div>  <!--  /.footer__inner  -->
-        </div>  <!--  /.container  -->
+                </div>  <!--footer__block 3-->
+            </div>  <!--/.footer__inner-->
+        </div>  <!--/.container-->
 
-        <!--  Copyright  -->
+        <!--Copyright-->
         <div class="copyright">
             <div class="container">
                 <div class="copyright__text">
@@ -376,7 +408,11 @@
                     <div>Made with Y <span> by Kamal Chaneman</span></div>
                 </div>
             </div>
-        </div> <!--  /.copyright  -->
+        </div> <!--/.copyright-->
     </footer>
+
+    <!--JavaScript-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
